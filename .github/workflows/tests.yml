@@ -17,26 +17,38 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check out Game Server Manager source
+        run: git clone --depth 1 https://github.com/Gamerz32/Manager-For-Game-Servers-HA.git manager_source
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Install application dependencies
-        run: python -m pip install -r game_server_manager/requirements.txt
+        run: python -m pip install -r manager_source/requirements.txt
 
       - name: Compile Python modules
-        run: python -m compileall -q game_server_manager/manager eero_dashboard
+        run: python -m compileall -q manager_source/manager eero_dashboard
 
       - name: Run unit tests
-        working-directory: game_server_manager
+        working-directory: manager_source
         run: python -m unittest discover -s tests -v
 
       - name: Run eero Dashboard launcher tests
         run: python -m unittest discover -s eero_dashboard/tests -v
 
       - name: Check dashboard JavaScript syntax
-        run: node --check game_server_manager/manager/static/app.js
+        run: node --check manager_source/manager/static/app.js
+
+      - name: Build Game Server Manager app image
+        run: >-
+          docker build
+          --build-arg APP_VERSION=3.0.4
+          --build-arg BUILD_VERSION=3.0.4
+          --build-arg BUILD_ARCH=amd64
+          --tag game-server-manager:test
+          game_server_manager
 
       - name: Build eero Dashboard app image
         run: >-
