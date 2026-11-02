@@ -13,7 +13,7 @@ Manage Minecraft Java, Bedrock, and cross-play servers from a Home Assistant sid
 - **Setup and feature guide:** [game_server_manager/README.md](https://github.com/Gamerz32/Game-Server-Manager-HA/blob/main/game_server_manager/README.md)
 - Supports amd64 and aarch64. The Lenovo ThinkCentre M720q uses amd64.
 
-The app uses the Docker API to create and manage game-server containers. Home Assistant requires Docker API access for the app, and Protection mode must be turned off. This grants the app control over host containers; review the setup guide before enabling it.
+The app uses the Docker API to create and manage game-server containers. Home Assistant requires Docker API access for the app, and Protection mode must be turned off. This grants the app control over host containers; review the setup guide before enabling it. See the [Game Server Manager security policy](https://github.com/Gamerz32/Manager-For-Game-Servers-HA/blob/main/SECURITY.md) for private vulnerability reporting.
 
 ### eero Dashboard
 
