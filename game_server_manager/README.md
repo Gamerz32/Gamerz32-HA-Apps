@@ -4,7 +4,7 @@ Manage dedicated game servers from a Home Assistant ingress dashboard. Minecraft
 
 ## Editable source and app updates
 
-The dashboard runtime is maintained in [Gamerz32/Manager-For-Game-Servers-HA](https://github.com/Gamerz32/Manager-For-Game-Servers-HA). This app-store package downloads the source repository's `main` branch during its image build. Edit the source repository to change the manager. Then bump the version in `game_server_manager/config.yaml` in the app-store repository and update the app in Home Assistant to rebuild it.
+The dashboard runtime is maintained in [Gamerz32/Game-Server-Manager-HA](https://github.com/Gamerz32/Game-Server-Manager-HA). This app-store package downloads the source repository's `main` branch during its image build. Edit the source repository to change the manager. Then bump the version in `game_server_manager/config.yaml` in the app-store repository and update the app in Home Assistant to rebuild it.
 
 Home Assistant needs internet access to GitHub and Python package indexes for an app build. No image registry credentials are needed.
 
@@ -51,7 +51,7 @@ The dashboard itself is available through Home Assistant ingress. Start the app,
 
 ## Install and first run
 
-1. Add https://github.com/Gamerz32/Game-Server-Manager-HA to **Settings → Apps → App Store → Repositories**.
+1. Add https://github.com/Gamerz32/Gamerz32-HA-Apps to **Settings → Apps → App Store → Repositories**.
 2. Install **Game Server Manager**.
 3. Turn off Protection mode and enable Docker API access for the app, then start it.
 4. Open **Game Servers** from the sidebar or the app's **Open Web UI** button.

@@ -1,7 +1,7 @@
 # Build the editable application source from its repository for the HAOS app.
 FROM python:3.12-slim AS builder
 
-ARG SOURCE_REPOSITORY=https://github.com/Gamerz32/Manager-For-Game-Servers-HA.git
+ARG SOURCE_REPOSITORY=https://github.com/Gamerz32/Game-Server-Manager-HA.git
 ARG SOURCE_REF=main
 
 RUN apt-get update \

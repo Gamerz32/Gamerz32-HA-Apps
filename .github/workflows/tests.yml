@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check out Game Server Manager source
-        run: git clone --depth 1 https://github.com/Gamerz32/Manager-For-Game-Servers-HA.git manager_source
+        run: git clone --depth 1 https://github.com/Gamerz32/Game-Server-Manager-HA.git manager_source
 
       - name: Set up Python
         uses: actions/setup-python@v5
