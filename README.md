@@ -24,7 +24,7 @@ View eero WAN throughput, network health, connected clients, mesh nodes, bufferb
 - **Setup and credential guide:** [eero_dashboard/README.md](https://github.com/Gamerz32/Gamerz32-HA-Apps/blob/main/eero_dashboard/README.md)
 - Supports amd64 and aarch64 and opens in the Home Assistant sidebar through ingress.
 
-eero sign-in requires the account's email or SMS verification. MQTT entities require a Home Assistant MQTT broker and integration.
+eero sign-in supports the Amazon account linked to eero and email/SMS verification when enabled for the account. Amazon credentials are entered only on Amazon's sign-in page. MQTT entities require a Home Assistant MQTT broker and integration.
 
 ## Install the apps
 
