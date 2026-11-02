@@ -37,7 +37,7 @@ This repository also includes Enrico Flammini's eero Dashboard as a separate Hom
 - Requires eero account sign-in and its email or SMS verification code.
 - The web interface is exposed on port `8085`; the Game Server Manager keeps its own ingress interface and port.
 
-After adding this repository to the HAOS App Store, install **eero Dashboard** as a separate app. See the [eero Dashboard setup guide](eero_dashboard/README.md) for options, credentials, storage, and known limitations.
+With this repository in the HAOS App Store, refresh the store after this change is merged and install **eero Dashboard** as a separate app. See the [eero Dashboard setup guide](eero_dashboard/README.md) for options, credentials, storage, and known limitations.
 
 ## Install
 

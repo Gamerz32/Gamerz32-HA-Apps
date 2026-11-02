@@ -4,16 +4,15 @@ This Home Assistant app runs Enrico Flammini's existing eero Dashboard as a Supe
 
 ## Install on Home Assistant OS
 
-This add-on is included in the **Gamerz32 - Game Server Manager** repository. After the change is merged to its `main` branch:
+This add-on is included in the **Gamerz32 Home Assistant Apps** repository. After the change is merged to its `main` branch:
 
-1. In Home Assistant, open **Settings → Apps → App Store → Repositories**.
-2. Add `https://github.com/Gamerz32/Game-Server-Manager-HA` and refresh the store.
-3. Install **eero Dashboard** and review its **Configuration** tab. HAOS builds this app from its `Dockerfile` and pulls the upstream image from Docker Hub, so the HA host needs internet access for the initial build.
-4. If the official Mosquitto Broker app is installed and the MQTT integration is configured, leave **MQTT broker host** blank. The app asks the Supervisor for the broker host, port, and credentials. For another broker, enter its host and a dedicated username/password.
-5. Start the app and select **Open Web UI**. The port maps to **8085** on the Home Assistant host by default.
-6. Create a local dashboard administrator in the first-run setup screen unless you supplied an administrator password in the app configuration. Sign in to eero and complete its email or SMS verification.
+1. In Home Assistant, open **Settings → Apps → App Store** and refresh the store from its menu.
+2. Install **eero Dashboard** from this repository and review its **Configuration** tab. HAOS builds this app from its `Dockerfile` and pulls the upstream image from Docker Hub, so the HA host needs internet access for the initial build.
+3. If the official Mosquitto Broker app is installed and the MQTT integration is configured, leave **MQTT broker host** blank. The app asks the Supervisor for the broker host, port, and credentials. For another broker, enter its host and a dedicated username/password.
+4. Start the app and select **Open Web UI**. The port maps to **8085** on the Home Assistant host by default.
+5. Create a local dashboard administrator in the first-run setup screen unless you supplied an administrator password in the app configuration. Sign in to eero and complete its email or SMS verification.
 
-For local development, copy the complete `eero_dashboard` folder to `/local_apps/eero_dashboard` (the Samba share exposes a `local_apps` folder; over SSH use `/local_apps/eero_dashboard`), then install it from **Local apps** in the app store.
+If this repository is not already in the Home Assistant App Store, add `https://github.com/Gamerz32/Game-Server-Manager-HA` under **Repositories** first. For local development, copy the complete `eero_dashboard` folder to `/local_apps/eero_dashboard` (the Samba share exposes a `local_apps` folder; over SSH use `/local_apps/eero_dashboard`), then install it from **Local apps**.
 
 ## Home Assistant entities
 
@@ -44,16 +43,15 @@ Questa app di Home Assistant esegue la dashboard eero esistente di Enrico Flammi
 
 ## Installazione su Home Assistant OS
 
-Questa app è inclusa nel repository **Gamerz32 - Game Server Manager**. Dopo aver integrato la modifica nel branch `main`:
+Questa app è inclusa nel repository **Gamerz32 Home Assistant Apps**. Dopo aver integrato la modifica nel branch `main`:
 
-1. In Home Assistant apri **Impostazioni → App → App store → Repository**.
-2. Aggiungi `https://github.com/Gamerz32/Game-Server-Manager-HA` e aggiorna lo store.
-3. Installa **eero Dashboard** e controlla la scheda **Configurazione**. HAOS compila l'app dal `Dockerfile` e scarica l'immagine upstream da Docker Hub; l'host HA deve avere accesso a Internet per la prima compilazione.
-4. Se Mosquitto Broker ufficiale è installato e l'integrazione MQTT è configurata, lascia vuoto **Host broker MQTT**. L'app chiede a Supervisor host, porta e credenziali del broker. Per un altro broker, inserisci host e credenziali dedicate.
-5. Avvia l'app e scegli **Apri interfaccia web**. Per impostazione predefinita la porta 8000 del container è esposta sulla porta **8085** dell'host Home Assistant.
-6. Crea un amministratore locale della dashboard dalla schermata iniziale, a meno che tu abbia già impostato una password nella configurazione dell'app. Accedi a eero e completa la verifica via email o SMS.
+1. In Home Assistant apri **Impostazioni → App → App store** e aggiorna lo store dal menu.
+2. Installa **eero Dashboard** da questo repository e controlla la scheda **Configurazione**. HAOS compila l'app dal `Dockerfile` e scarica l'immagine upstream da Docker Hub; l'host HA deve avere accesso a Internet per la prima compilazione.
+3. Se Mosquitto Broker ufficiale è installato e l'integrazione MQTT è configurata, lascia vuoto **Host broker MQTT**. L'app chiede a Supervisor host, porta e credenziali del broker. Per un altro broker, inserisci host e credenziali dedicate.
+4. Avvia l'app e scegli **Apri interfaccia web**. Per impostazione predefinita la porta 8000 del container è esposta sulla porta **8085** dell'host Home Assistant.
+5. Crea un amministratore locale della dashboard dalla schermata iniziale, a meno che tu abbia già impostato una password nella configurazione dell'app. Accedi a eero e completa la verifica via email o SMS.
 
-Per lo sviluppo locale, copia l'intera cartella `eero_dashboard` in `/local_apps/eero_dashboard` (la condivisione Samba mostra la cartella `local_apps`; via SSH usa `/local_apps/eero_dashboard`), quindi installala da **App locali** nello store.
+Se questo repository non è ancora nell'App store di Home Assistant, aggiungi prima `https://github.com/Gamerz32/Game-Server-Manager-HA` in **Repository**. Per lo sviluppo locale, copia l'intera cartella `eero_dashboard` in `/local_apps/eero_dashboard` (la condivisione Samba mostra la cartella `local_apps`; via SSH usa `/local_apps/eero_dashboard`), quindi installala da **App locali**.
 
 ## Entità Home Assistant
 
