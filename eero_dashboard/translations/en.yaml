@@ -1,0 +1,63 @@
+configuration:
+  dashboard_lang:
+    name: Dashboard language
+    description: Language used by the eero Dashboard interface.
+  demo_mode:
+    name: Demo mode
+    description: Start with simulated network data instead of connecting to an eero account.
+  poll_interval:
+    name: Poll interval
+    description: How often the dashboard refreshes eero cloud data, in seconds.
+  history_retention_days:
+    name: History retention
+    description: Number of days to keep historical data.
+  speedtest_interval_hours:
+    name: Automatic speed test interval
+    description: Set to 0 to disable scheduled speed tests.
+  api_docs:
+    name: Enable API documentation
+    description: Exposes interactive API documentation. Leave disabled unless needed.
+  require_local_auth:
+    name: Require local authentication
+    description: Require a dashboard account for API requests. Recommended when the web port is reachable on your LAN.
+  eero_network_id:
+    name: eero network ID
+    description: Optional network ID for accounts that have multiple networks.
+  eero_user_token:
+    name: eero user token
+    description: Optional existing eero session token. Normally leave empty and complete eero's email or SMS verification in the dashboard.
+  admin_user:
+    name: Dashboard administrator username
+    description: Used only when bootstrapping an administrator with an administrator password.
+  admin_password:
+    name: Dashboard administrator password
+    description: Optional. Leave empty to create the administrator through the first-run setup screen.
+  mqtt_enabled:
+    name: Enable MQTT
+    description: Publish telemetry and Home Assistant MQTT discovery entities.
+  mqtt_broker_host:
+    name: MQTT broker host
+    description: Leave empty to use broker details provided by the Home Assistant Supervisor.
+  mqtt_broker_port:
+    name: MQTT broker port
+    description: Used when a custom broker host is entered or no Supervisor broker is available.
+  mqtt_username:
+    name: MQTT username
+    description: Optional override. Leave empty to use the Supervisor-provided username.
+  mqtt_password:
+    name: MQTT password
+    description: Optional override. Leave empty to use the Supervisor-provided password.
+  mqtt_base_topic:
+    name: MQTT base topic
+    description: Topic prefix used by the eero Dashboard.
+  mqtt_discovery_prefix:
+    name: MQTT discovery prefix
+    description: Home Assistant MQTT discovery prefix, normally homeassistant.
+  mqtt_discovery_enabled:
+    name: Enable MQTT discovery
+    description: Publish Home Assistant entity discovery configuration.
+  mqtt_publish_interval:
+    name: MQTT publish interval
+    description: Minimum interval between telemetry updates, in seconds.
+network:
+  8000/tcp: eero Dashboard web interface
