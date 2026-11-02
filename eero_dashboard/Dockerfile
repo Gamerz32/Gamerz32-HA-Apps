@@ -2,7 +2,7 @@
 FROM python:3.12-alpine AS builder
 
 ARG SOURCE_REPOSITORY=https://github.com/Gamerz32/Dashboard_EERO-HA.git
-ARG SOURCE_REF=main
+ARG SOURCE_COMMIT=c2ec54c3073e4837429dfd65fccfb848e0948c71
 
 RUN apk add --no-cache \
     git \
@@ -14,7 +14,10 @@ RUN apk add --no-cache \
     jpeg-dev
 
 WORKDIR /source
-RUN git clone --depth 1 --branch "$SOURCE_REF" "$SOURCE_REPOSITORY" .
+RUN git init . \
+    && git remote add origin "$SOURCE_REPOSITORY" \
+    && git fetch --depth 1 origin "$SOURCE_COMMIT" \
+    && git checkout --detach FETCH_HEAD
 
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
@@ -23,7 +26,7 @@ RUN pip install --no-cache-dir --upgrade "pip>=26.2.0" "setuptools>=83.0.0" whee
 
 FROM python:3.12-alpine AS app
 
-ARG APP_VERSION=1.6.5
+ARG APP_VERSION=1.6.6
 ARG BUILD_VERSION
 ARG BUILD_ARCH
 

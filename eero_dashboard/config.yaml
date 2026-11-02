@@ -1,5 +1,5 @@
 name: "eero Dashboard"
-version: "1.6.5"
+version: "1.6.6"
 slug: "eero_dashboard"
 description: "eero mesh dashboard shown in the Home Assistant sidebar."
 url: "https://github.com/Gamerz32/Dashboard_EERO-HA"

@@ -13,9 +13,9 @@ The package supports `amd64` and `aarch64`. The Lenovo ThinkCentre M720q uses th
 
 ## Source updates and editing
 
-The dashboard application is cloned from the `main` branch of [Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA) during the Home Assistant image build. The package in this repository contains the Home Assistant app metadata, Docker build, and launcher. It does not copy the dashboard source code.
+The dashboard application is checked out from the exact source commit recorded as `SOURCE_COMMIT` in `eero_dashboard/Dockerfile`. Pinning the commit makes app builds reproducible and ensures a source update cannot reuse an older cached clone. The package in this repository contains the Home Assistant app metadata, Docker build, and launcher; it does not copy the dashboard source code.
 
-After changing the source repository, bump the `version` in `eero_dashboard/config.yaml` in this repository and update the app in Home Assistant. The version bump makes Home Assistant rebuild the image with the new source. Home Assistant needs outbound access to GitHub and Python package indexes when it builds the app. No Docker Hub or registry credentials are needed.
+For each dashboard source release, update `SOURCE_COMMIT` to the new commit on [Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA), set `APP_VERSION` in `eero_dashboard/Dockerfile`, and bump `version` in `eero_dashboard/config.yaml` to the same release number. Then update the app in Home Assistant. Home Assistant needs outbound access to GitHub and Python package indexes when it builds the app. No Docker Hub or registry credentials are needed.
 
 ## First run and eero sign-in
 
