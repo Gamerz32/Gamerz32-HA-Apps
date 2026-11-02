@@ -1,91 +1,54 @@
-# Game Server Manager for Home Assistant
+# Gamerz32 Home Assistant Apps
 
-Game Server Manager adds a Home Assistant dashboard for creating and managing game servers. Minecraft Java, Bedrock, and cross-play are available now; Worms Armageddon appears as a work-in-progress option and cannot be created yet.
+This repository is the Home Assistant app catalog for Gamerz32's independently maintained apps. It contains the installable Home Assistant app entries and their build definitions; each app's editable application source is maintained in a separate repository.
 
-Java servers run in their own [itzg/minecraft-server](https://docker-minecraft-server.readthedocs.io/en/latest/) container. Bedrock servers run in [itzg/minecraft-bedrock-server](https://github.com/itzg/docker-minecraft-bedrock-server). Each server has persistent world data.
+## Available apps
 
-## Features
+### Game Server Manager
 
-- Create and manage independent Minecraft Java and Bedrock servers from the Home Assistant dashboard.
-- Create a Java cross-play server with Geyser and Floodgate so Bedrock players can join the Java world.
-- Start, stop, inspect logs, and send commands through each server's interactive console.
-- Configure memory, Java or Bedrock versions, and network ports per server.
-- Set world name, seed, game mode, difficulty, player limit, and player access controls before creating a server.
-- Manage operators, optional allow-lists, Java-only blacklists, and edition-specific player permission levels in server settings. Vanilla Bedrock servers use their allow-list because they do not provide a native ban list.
-- Reset a server world from Settings, or upload a Java server-list icon.
-- Browse Bedrock add-ons on CurseForge or upload local `.mcaddon` and `.mcpack` files for a Bedrock Dedicated Server.
-- Choose Vanilla, supported server software, or a Modrinth or CurseForge modpack and version.
-- Use the Types, Mods, Plugins, and Add-ons tabs to browse compatible content; Paper cross-play servers default to Hangar for plugins; other Java servers default to Modrinth, with CurseForge and Hangar available where supported.
-- Use **Force exit** to cancel queued operations, disable Docker restart retries, and immediately remove the container if a server is stuck booting or restarting. It preserves the files in `/share`; choose Start to create a new container when you are ready.
-- Configure per-server automation for pausing or stopping idle servers, waking them on a connection attempt, and checking for updates.
-- Install updates manually, or enable each server's automatic update policy.
-- Open the manager through Home Assistant's sidebar using app ingress.
+Manage Minecraft Java, Bedrock, and cross-play servers from a Home Assistant sidebar dashboard. Create servers, manage worlds and player access, browse mods, plugins, add-ons, and content packs, inspect logs, and configure per-server automation.
 
-## Content catalogs and local imports
+- **Application source:** [Manager-For-Game-Servers-HA](https://github.com/Gamerz32/Manager-For-Game-Servers-HA)
+- **Home Assistant app:** [game_server_manager](https://github.com/Gamerz32/Game-Server-Manager-HA/tree/main/game_server_manager)
+- **Setup and feature guide:** [game_server_manager/README.md](https://github.com/Gamerz32/Game-Server-Manager-HA/blob/main/game_server_manager/README.md)
+- Supports amd64 and aarch64. The Lenovo ThinkCentre M720q uses amd64.
 
-The dashboard can browse and install compatible Modrinth and CurseForge resource packs, data packs, and worlds/maps. Paper plugin browsing includes Hangar, while the Mods tab also supports local JAR imports.
+The app uses the Docker API to create and manage game-server containers. Home Assistant requires Docker API access for the app, and Protection mode must be turned off. This grants the app control over host containers; review the setup guide before enabling it.
 
-Drop supported local files into the matching import area: modpack archives in Types, mod JARs in Mods, plugin JARs in Plugins, Bedrock .mcaddon or .mcpack files in Add-ons, and resource-pack/data-pack/map ZIPs in Content. The add-on saves server files and downloaded content under /share/game_server_manager/servers/. World imports back up the previous world first.
+### eero Dashboard
 
-CurseForge uses an API key configured in the Home Assistant add-on Configuration. A temporary session override is available under Catalog Settings. Resource packs installed by the add-on are downloadable from the manager; Minecraft clients need the ZIP at a public HTTPS URL, configured in that Java server's Settings.
-## Game Server Manager source
+View eero WAN throughput, network health, connected clients, mesh nodes, bufferbloat, cloud status, and device presence. MQTT discovery publishes telemetry as Home Assistant entities.
 
-The editable application code now lives in [Gamerz32/Manager-For-Game-Servers-HA](https://github.com/Gamerz32/Manager-For-Game-Servers-HA). The Home Assistant app entry remains in `game_server_manager/` here and builds its runtime from that source repository's `main` branch. After changing source, bump the app version in `game_server_manager/config.yaml` and update the app in Home Assistant to rebuild it.
+- **Application source:** [Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA)
+- **Home Assistant app:** [eero_dashboard](https://github.com/Gamerz32/Game-Server-Manager-HA/tree/main/eero_dashboard)
+- **Setup and credential guide:** [eero_dashboard/README.md](https://github.com/Gamerz32/Game-Server-Manager-HA/blob/main/eero_dashboard/README.md)
+- Supports amd64 and aarch64 and opens in the Home Assistant sidebar through ingress.
 
-## eero Dashboard app
+eero sign-in requires the account's email or SMS verification. MQTT entities require a Home Assistant MQTT broker and integration.
 
-This repository lists **eero Dashboard** as a separate Home Assistant app. The Home Assistant app entry lives in `eero_dashboard/`; its dashboard application source is downloaded from [Gamerz32/Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA) when Home Assistant builds the app.
-
-- Opens from the Home Assistant sidebar through ingress; it does not publish a host port.
-- Publishes WAN, network health, connected-client, mesh-node, cloud-status, and device-presence entities through MQTT discovery.
-- Uses the Home Assistant MQTT service when available. eero account sign-in and its email or SMS verification are still required.
-- Supports `amd64` and `aarch64`; the Lenovo ThinkCentre M720q is `amd64`.
-
-Add this repository to the Home Assistant App Store, refresh the store, and install **eero Dashboard**. See the [setup guide](eero_dashboard/README.md) for configuration and credentials. The app package in this repository builds from the source repository's `main` branch. When the source changes, bump `eero_dashboard/config.yaml`'s version here and update the app in Home Assistant to trigger a rebuild.
-
-## Install
+## Install the apps
 
 1. In Home Assistant, open **Settings → Apps → App Store → Repositories**.
-2. Add this repository:
+2. Add this repository: https://github.com/Gamerz32/Game-Server-Manager-HA
+3. Refresh the app store.
+4. Install and start **Game Server Manager**, **eero Dashboard**, or both. Each is a separate Home Assistant app with its own configuration and data.
 
-   `https://github.com/Gamerz32/Game-Server-Manager-HA`
+## Edit and update app source
 
-3. Install **Game Server Manager** from the app store.
-4. In the app's configuration, set the gateway networking option as desired. It is off by default; Home Assistant restarts the app when this setting changes.
-5. Enable Docker API access and turn off Protection mode for the app, then start it.
-6. Open the app's web interface, accept the Minecraft EULA for the edition you choose, and create your first server.
+Edit each app in its own source repository. The app-store Dockerfiles download the source repository's main branch when Home Assistant builds the app.
 
-For detailed setup, networking, backup, migration, and troubleshooting instructions, see the [Game Server Manager guide](https://github.com/Gamerz32/Game-Server-Manager-HA/blob/main/game_server_manager/README.md).
+After changing source, bump that app's version in its configuration file in this repository, then update the app in Home Assistant to trigger a rebuild:
 
-## Docker access and networking
+- Game Server Manager: game_server_manager/config.yaml
+- eero Dashboard: eero_dashboard/config.yaml
 
-The manager uses the Docker API to create and manage separate game-server containers. Docker API access can control containers on the Home Assistant host, so enabling it carries elevated privileges. Review the [Home Assistant app security guidance](https://developers.home-assistant.io/docs/apps/guides/security/) before enabling it.
+The Home Assistant host needs internet access to GitHub and Python package indexes during an app build. No Docker Hub credentials are needed.
 
-The manager app itself uses bridge networking. The **Minecraft gateway host networking** option applies only to the small gateway containers that publish Java server ports. It is off by default. Bedrock Dedicated Servers publish a TCP signaling port and a configured range of 16 UDP gameplay ports directly from their container. The dashboard defaults the advertised address to `<public_ip>`; set a reachable local IP for LAN-only access. A Java cross-play server uses its assigned Java TCP port plus a separate Bedrock port that must be forwarded for both TCP and UDP. Reserve TCP port **8099** for the manager interface. Players connecting from outside your home network may also need router port forwarding.
+## References and licenses
 
-## Data and migration
+- [Home Assistant app documentation](https://developers.home-assistant.io/docs/apps/)
+- [Home Assistant app security guidance](https://developers.home-assistant.io/docs/apps/guides/security/)
+- Game Server Manager is distributed under the repository's [MIT license](https://github.com/Gamerz32/Game-Server-Manager-HA/blob/main/LICENSE).
+- The eero Dashboard attribution and license are documented in [Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA).
 
-Server files are stored in Home Assistant's shared folder at `/share/game_server_manager/servers/data/`. In File Editor, open `/share/game_server_manager/`. Existing files are moved from the app's private `/data/` storage the first time the updated app starts. Home Assistant's own `/data/options.json` remains in its platform-managed location. Since the server files are now in the Share folder, include Share in backups; Home Assistant's recommended automatic backup setup excludes it by default. Make a backup before removing the app or changing its data.
-
-The Home Assistant app slug is `game_server_manager`. This is a new app identity compared with the earlier Vanilla server app, so Home Assistant uses a new hostname and the old app's data is not automatically moved. The previous Vanilla server's files can be imported from `/share/minecraft-vanilla`; the import keeps the original share copy intact. Keep a backup until the new server and world have been verified.
-
-## Editions and cross-play
-
-Java servers support Vanilla, plugins, mod loaders, and modpacks. Bedrock servers use the upstream Bedrock Dedicated Server image and can be configured to use a stable or preview release. Cross-play creates a Paper-compatible Java server with Geyser and Floodgate installed and sets `enforce-secure-profile=false` for Bedrock-to-Java chat compatibility. The Java port is TCP; the Bedrock cross-play port needs both TCP and UDP. Bedrock and cross-play players connect to the same Java world, with compatibility limits described by [GeyserMC](https://geysermc.org/wiki/geyser/).
-
-Java server automation does not apply to Bedrock Dedicated Servers. Bedrock add-on browsing uses the key configured in Home Assistant add-on Configuration or a temporary Catalog Settings override, and local `.mcaddon` or `.mcpack` files can be uploaded directly. Bedrock cross-play servers disable auto-pause, auto-stop, and wake-on-join because Bedrock traffic uses a direct port. The manager app and its Home Assistant setup remain the same.
-
-## AI-assisted development
-
-This project uses AI tools for assisting with planning, interface design, implementation, documentation, and troubleshooting on this project. The project maintainer is responsible for reviewing and maintaining the work. AI-assisted changes can contain errors, so report issues and verify behavior in your own Home Assistant setup before relying on it.
-
-## References
-
-- [itzg Minecraft server documentation](https://docker-minecraft-server.readthedocs.io/en/latest/)
-- [itzg Bedrock server image documentation](https://github.com/itzg/docker-minecraft-bedrock-server)
-- [GeyserMC setup and port requirements](https://geysermc.org/wiki/geyser/setup/)
-- [Floodgate setup](https://geysermc.org/wiki/floodgate/setup/)
-- [Home Assistant app configuration](https://developers.home-assistant.io/docs/apps/configuration/)
-- [License](LICENSE)
-
-This community project is not affiliated with Minecraft, Mojang, Microsoft, Modrinth, CurseForge, or Home Assistant. Their names and marks belong to their respective owners.
+This community project is not affiliated with Home Assistant, eero, Amazon, Minecraft, Mojang, Microsoft, Modrinth, CurseForge, or the owners of those names and marks.
