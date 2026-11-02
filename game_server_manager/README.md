@@ -2,6 +2,12 @@
 
 Manage dedicated game servers from a Home Assistant ingress dashboard. Minecraft Java, Bedrock, and Java/Bedrock cross-play are available now. Worms Armageddon appears in the game picker as WIP and is unavailable. Minecraft Java servers use <code>itzg/minecraft-server</code>; Bedrock Dedicated Servers use <code>itzg/minecraft-bedrock-server</code>. Each Minecraft server has its own persistent world directory.
 
+## Editable source and app updates
+
+The dashboard runtime is maintained in [Gamerz32/Manager-For-Game-Servers-HA](https://github.com/Gamerz32/Manager-For-Game-Servers-HA). This app-store package downloads the source repository's `main` branch during its image build. Edit the source repository to change the manager. Then bump the version in `game_server_manager/config.yaml` in the app-store repository and update the app in Home Assistant to rebuild it.
+
+Home Assistant needs internet access to GitHub and Python package indexes for an app build. No image registry credentials are needed.
+
 ## Dashboard
 
 - Create independent Minecraft Java and Bedrock server cards as the host can support.
