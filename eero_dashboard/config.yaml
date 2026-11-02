@@ -1,0 +1,58 @@
+name: "eero Dashboard"
+version: "1.6.2"
+slug: eero_dashboard
+description: "Run the eero network dashboard on Home Assistant OS and publish eero entities through MQTT discovery."
+url: "https://github.com/EnricoFlammini/Dashboard_EERO"
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: true
+timeout: 30
+services:
+  - mqtt:want
+ports:
+  "8000/tcp": 8085
+webui: "http://[HOST]:[PORT:8000]"
+ports_description:
+  "8000/tcp": "eero Dashboard web interface"
+options:
+  dashboard_lang: en
+  demo_mode: false
+  poll_interval: 30
+  history_retention_days: 30
+  speedtest_interval_hours: 12
+  api_docs: false
+  require_local_auth: true
+  eero_network_id: ""
+  admin_user: admin
+  mqtt_enabled: true
+  mqtt_broker_host: ""
+  mqtt_broker_port: 1883
+  mqtt_username: ""
+  mqtt_base_topic: eero_dashboard
+  mqtt_discovery_prefix: homeassistant
+  mqtt_discovery_enabled: true
+  mqtt_publish_interval: 30
+schema:
+  dashboard_lang: "list(en|it)"
+  demo_mode: bool
+  poll_interval: "int(10,3600)"
+  history_retention_days: "int(1,365)"
+  speedtest_interval_hours: "int(0,168)"
+  api_docs: bool
+  require_local_auth: bool
+  eero_network_id: str
+  eero_user_token: "password?"
+  admin_user: "str(1,128)"
+  admin_password: "password?"
+  mqtt_enabled: bool
+  mqtt_broker_host: str
+  mqtt_broker_port: port
+  mqtt_username: str
+  mqtt_password: "password?"
+  mqtt_base_topic: "str(1,128)"
+  mqtt_discovery_prefix: "str(1,128)"
+  mqtt_discovery_enabled: bool
+  mqtt_publish_interval: "int(5,3600)"

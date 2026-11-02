@@ -28,6 +28,17 @@ The dashboard can browse and install compatible Modrinth and CurseForge resource
 Drop supported local files into the matching import area: modpack archives in Types, mod JARs in Mods, plugin JARs in Plugins, Bedrock .mcaddon or .mcpack files in Add-ons, and resource-pack/data-pack/map ZIPs in Content. The add-on saves server files and downloaded content under /share/game_server_manager/servers/. World imports back up the previous world first.
 
 CurseForge uses an API key configured in the Home Assistant add-on Configuration. A temporary session override is available under Catalog Settings. Resource packs installed by the add-on are downloadable from the manager; Minecraft clients need the ZIP at a public HTTPS URL, configured in that Java server's Settings.
+## eero Dashboard app
+
+This repository also includes Enrico Flammini's eero Dashboard as a separate Home Assistant app. It preserves the upstream web dashboard and publishes eero network telemetry through Home Assistant MQTT discovery.
+
+- Shows WAN throughput, network health, connected clients, mesh nodes, bufferbloat, cloud connectivity, and per-device presence.
+- Uses the existing Home Assistant MQTT integration and can read broker credentials from the Supervisor when Mosquitto Broker is installed.
+- Requires eero account sign-in and its email or SMS verification code.
+- The web interface is exposed on port `8085`; the Game Server Manager keeps its own ingress interface and port.
+
+After adding this repository to the HAOS App Store, install **eero Dashboard** as a separate app. See the [eero Dashboard setup guide](eero_dashboard/README.md) for options, credentials, storage, and known limitations.
+
 ## Install
 
 1. In Home Assistant, open **Settings → Apps → App Store → Repositories**.

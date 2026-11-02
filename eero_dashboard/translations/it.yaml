@@ -1,0 +1,63 @@
+configuration:
+  dashboard_lang:
+    name: Lingua della dashboard
+    description: Lingua usata dall'interfaccia di eero Dashboard.
+  demo_mode:
+    name: Modalità demo
+    description: Avvia dati di rete simulati invece di collegarsi a un account eero.
+  poll_interval:
+    name: Intervallo di aggiornamento
+    description: Frequenza di aggiornamento dei dati dal cloud eero, in secondi.
+  history_retention_days:
+    name: Conservazione dello storico
+    description: Numero di giorni per cui conservare i dati storici.
+  speedtest_interval_hours:
+    name: Intervallo dei test di velocità automatici
+    description: Imposta 0 per disattivare i test programmati.
+  api_docs:
+    name: Abilita la documentazione API
+    description: Espone la documentazione interattiva delle API. Lascia disattivata salvo necessità.
+  require_local_auth:
+    name: Richiedi autenticazione locale
+    description: Richiede un account della dashboard per le richieste API. Consigliato se la porta web è raggiungibile dalla LAN.
+  eero_network_id:
+    name: ID rete eero
+    description: ID di rete facoltativo per gli account con più reti.
+  eero_user_token:
+    name: Token utente eero
+    description: Token di sessione eero esistente, facoltativo. Normalmente lascia vuoto e completa la verifica email o SMS nella dashboard.
+  admin_user:
+    name: Nome utente amministratore
+    description: Usato solo per inizializzare l'amministratore se viene impostata una password.
+  admin_password:
+    name: Password amministratore
+    description: Facoltativa. Lascia vuoto per creare l'amministratore dalla schermata iniziale.
+  mqtt_enabled:
+    name: Abilita MQTT
+    description: Pubblica telemetria e le entità Home Assistant tramite MQTT discovery.
+  mqtt_broker_host:
+    name: Host broker MQTT
+    description: Lascia vuoto per usare i dati broker forniti da Home Assistant Supervisor.
+  mqtt_broker_port:
+    name: Porta broker MQTT
+    description: Usata con un host personalizzato o se Supervisor non fornisce un broker.
+  mqtt_username:
+    name: Nome utente MQTT
+    description: Override facoltativo. Lascia vuoto per usare il nome utente fornito da Supervisor.
+  mqtt_password:
+    name: Password MQTT
+    description: Override facoltativo. Lascia vuoto per usare la password fornita da Supervisor.
+  mqtt_base_topic:
+    name: Topic MQTT di base
+    description: Prefisso dei topic usati da eero Dashboard.
+  mqtt_discovery_prefix:
+    name: Prefisso MQTT discovery
+    description: Prefisso Home Assistant MQTT discovery, normalmente homeassistant.
+  mqtt_discovery_enabled:
+    name: Abilita MQTT discovery
+    description: Pubblica la configurazione per il rilevamento delle entità Home Assistant.
+  mqtt_publish_interval:
+    name: Intervallo pubblicazione MQTT
+    description: Intervallo minimo tra gli aggiornamenti della telemetria, in secondi.
+network:
+  8000/tcp: Interfaccia web di eero Dashboard
