@@ -19,7 +19,7 @@ After changing the source repository, bump the `version` in `eero_dashboard/conf
 
 ## First run and eero sign-in
 
-Home Assistant ingress handles access authentication. The dashboard's own local login is off by default; enable **Require dashboard login** in app options if you want an additional login. Sign in to eero from the dashboard and complete any email or SMS verification. The optional eero token and network ID are for advanced setups; most users can leave them blank.
+Home Assistant ingress handles access authentication. The dashboard's own local login is off by default; enable **Require dashboard login** in app options if you want an additional login. Sign in with the Amazon account already linked to eero, or use email/SMS verification if your account supports it. For Amazon sign-in, open Amazon from the dashboard, sign in on Amazon, then copy the full address shown after Amazon returns and paste it back into the dashboard. Your Amazon password is entered only on Amazon. The dashboard sends the short-lived, one-use authorization code to Amazon and eero to create the eero session, then clears it. The optional eero token and network ID are for advanced setups; most users can leave them blank.
 
 The app stores its database, eero session, logs, and history under its persistent `/data` directory, which is included in Home Assistant app backups.
 
