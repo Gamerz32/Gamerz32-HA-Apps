@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir --upgrade "pip>=26.2.0" "setuptools>=83.0.0" whee
 
 FROM python:3.12-alpine AS app
 
-ARG APP_VERSION=1.6.3
+ARG APP_VERSION=1.6.4
 ARG BUILD_VERSION
 ARG BUILD_ARCH
 
