@@ -5,7 +5,7 @@ This Home Assistant app packages the dashboard source from [Gamerz32/Dashboard_E
 ## Install
 
 1. In Home Assistant, open **Settings → Apps → App Store → Repositories**.
-2. Add `https://github.com/Gamerz32/Game-Server-Manager-HA` if it is not already listed.
+2. Add `https://github.com/Gamerz32/Gamerz32-HA-Apps` if it is not already listed.
 3. Refresh the app store, install **eero Dashboard**, and start it.
 4. Open **eero Dashboard** from the Home Assistant sidebar.
 
@@ -40,7 +40,7 @@ Questa app Home Assistant usa il codice sorgente di [Dashboard_EERO-HA](https://
 ## Installazione
 
 1. In Home Assistant, apri **Impostazioni → App → App Store → Repository**.
-2. Aggiungi `https://github.com/Gamerz32/Game-Server-Manager-HA` se non è già presente.
+2. Aggiungi `https://github.com/Gamerz32/Gamerz32-HA-Apps` se non è già presente.
 3. Aggiorna l'App Store, installa **eero Dashboard** e avviala.
 4. Apri **eero Dashboard** dalla barra laterale di Home Assistant.
 
