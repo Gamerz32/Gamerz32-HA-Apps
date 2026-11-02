@@ -36,7 +36,7 @@ OPTION_ENVIRONMENT = {
     "mqtt_username": "MQTT_USERNAME",
     "mqtt_password": "MQTT_PASSWORD",
     "mqtt_base_topic": "MQTT_BASE_TOPIC",
-    "mqtt_discovery_prefix": "MQTT_HA_DISCOVERY_PREFIX",
+    "mqtt_ha_discovery_prefix": "MQTT_HA_DISCOVERY_PREFIX",
     "mqtt_discovery_enabled": "MQTT_DISCOVERY_ENABLED",
     "mqtt_publish_interval": "MQTT_PUBLISH_INTERVAL",
 }
@@ -105,6 +105,8 @@ def build_environment(
     """Translate app options into environment variables consumed upstream."""
     environment = dict(base_environment if base_environment is not None else os.environ)
     environment["DATA_DIR"] = DATA_DIRECTORY
+    # The dashboard is only reachable through Home Assistant ingress.
+    environment["HA_INGRESS_ONLY"] = "true"
 
     for option, variable in OPTION_ENVIRONMENT.items():
         if option in options and options[option] is not None:

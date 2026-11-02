@@ -37,3 +37,12 @@ jobs:
 
       - name: Check dashboard JavaScript syntax
         run: node --check game_server_manager/manager/static/app.js
+
+      - name: Build eero Dashboard app image
+        run: >-
+          docker build
+          --build-arg APP_VERSION=1.6.3
+          --build-arg BUILD_VERSION=1.6.3
+          --build-arg BUILD_ARCH=amd64
+          --tag eero-dashboard:test
+          eero_dashboard

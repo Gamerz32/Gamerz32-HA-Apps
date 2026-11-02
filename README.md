@@ -30,14 +30,14 @@ Drop supported local files into the matching import area: modpack archives in Ty
 CurseForge uses an API key configured in the Home Assistant add-on Configuration. A temporary session override is available under Catalog Settings. Resource packs installed by the add-on are downloadable from the manager; Minecraft clients need the ZIP at a public HTTPS URL, configured in that Java server's Settings.
 ## eero Dashboard app
 
-This repository also includes Enrico Flammini's eero Dashboard as a separate Home Assistant app. It preserves the upstream web dashboard and publishes eero network telemetry through Home Assistant MQTT discovery.
+This repository lists **eero Dashboard** as a separate Home Assistant app. The Home Assistant app entry lives in `eero_dashboard/`; its dashboard application source is downloaded from [Gamerz32/Dashboard_EERO-HA](https://github.com/Gamerz32/Dashboard_EERO-HA) when Home Assistant builds the app.
 
-- Shows WAN throughput, network health, connected clients, mesh nodes, bufferbloat, cloud connectivity, and per-device presence.
-- Uses the existing Home Assistant MQTT integration and can read broker credentials from the Supervisor when Mosquitto Broker is installed.
-- Requires eero account sign-in and its email or SMS verification code.
-- The web interface is exposed on port `8085`; the Game Server Manager keeps its own ingress interface and port.
+- Opens from the Home Assistant sidebar through ingress; it does not publish a host port.
+- Publishes WAN, network health, connected-client, mesh-node, cloud-status, and device-presence entities through MQTT discovery.
+- Uses the Home Assistant MQTT service when available. eero account sign-in and its email or SMS verification are still required.
+- Supports `amd64` and `aarch64`; the Lenovo ThinkCentre M720q is `amd64`.
 
-With this repository in the HAOS App Store, refresh the store after this change is merged and install **eero Dashboard** as a separate app. See the [eero Dashboard setup guide](eero_dashboard/README.md) for options, credentials, storage, and known limitations.
+Add this repository to the Home Assistant App Store, refresh the store, and install **eero Dashboard**. See the [setup guide](eero_dashboard/README.md) for configuration and credentials. The app package in this repository builds from the source repository's `main` branch. When the source changes, bump `eero_dashboard/config.yaml`'s version here and update the app in Home Assistant to trigger a rebuild.
 
 ## Install
 
